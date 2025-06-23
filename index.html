@@ -13,7 +13,12 @@
     <nav>
         <div class="nav-container">
             <div class="logo">Tejas Jondhale</div>
-            <ul class="nav-links">
+            <div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -302,6 +307,18 @@
             setTimeout(() => {
                 typeWriter(subtitle, originalText, 80);
             }, 1000);
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        hamburger.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                navLinks.classList.toggle('open');
+            }
         });
     </script>
 </body>
